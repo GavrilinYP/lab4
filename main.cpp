@@ -33,7 +33,7 @@ struct student{
 int
 main() {
 student s[4];
-    int i;
+    int i, N;
     strcpy(s[0].name, "Ivan I");
     s[0].year=1989;
     s[0].srbal=5;
@@ -58,9 +58,14 @@ student s[4];
     s[3].sex=1;
     s[3].courses=0;
     s[3].str=&s[0];
-    for (i=0; i<3; i++) {
+    cout<<"address massiva="<<&s<<"\n";
+    cout<<"size of array = "<<sizeof(s)<<"\n";
+    for (i=1; i<3; i++) {
+        cout<<"address elementa="<<&s[i]<<"\n";
+        cout<<"size elementa="<<sizeof(s[i])<<"\n";
         print_in_hex(&s[i], sizeof s[i]);
         cout<<"\n";
     }
+
     return 0;
 }
