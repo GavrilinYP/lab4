@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstring>
 using namespace std;
 
 char nible_to_hex(uint8_t i) {
@@ -20,20 +21,46 @@ void  print_in_hex (const void* data, size_t size){
         cout<<" ";
     }}
 
-
+struct student{
+    char name[17];
+    int year;
+    float srbal;
+    int sex:1;
+    int courses;
+    student* str;
+};
 
 int
 main() {
-    uint32_t byte;
-    int N;
-    size_t size;
-        cout<<"vvedite byte\n";
-       cin>>byte;
-
-    print_byte(byte);
-
-    cout<<"\nN = ";
-    cin>>N;
-     print_in_hex (&N,sizeof(N));
+student s[4];
+    int i;
+    strcpy(s[0].name, "Ivan I");
+    s[0].year=1989;
+    s[0].srbal=5;
+    s[0].sex=1;
+    s[0].courses=5;
+    s[0].str=nullptr;
+    strcpy(s[1].name, "Ivan II");
+    s[1].year=2014;
+    s[1].srbal=2;
+    s[1].sex=1;
+    s[1].courses=2;
+    s[1].str=&s[0];
+    strcpy(s[2].name, "Ivan III");
+    s[2].year=2000;
+    s[2].srbal=3;
+    s[2].sex=1;
+    s[2].courses=5;
+    s[2].str=&s[0];
+    strcpy(s[3].name, "Ivan IV");
+    s[3].year=3015;
+    s[3].srbal=0;
+    s[3].sex=1;
+    s[3].courses=0;
+    s[3].str=&s[0];
+    for (i=0; i<3; i++) {
+        print_in_hex(&s[i], sizeof s[i]);
+        cout<<"\n";
+    }
     return 0;
 }
